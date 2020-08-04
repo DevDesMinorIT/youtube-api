@@ -1,14 +1,15 @@
 import React from 'react';
 
 class SearchBar extends React.Component{
-    state = { term: 'default text'}
+    state = { term: ''}
+    
     onInputChange = (event) => {
         this.setState({term: event.target.value})
     };
     onFormSubmit = (event) => {
         event.preventDefault();
 
-        //! Make sure we call callback from parent component 
+       this.props.onFormSubmit(this.state.term);
     };
     render(){
         return(
